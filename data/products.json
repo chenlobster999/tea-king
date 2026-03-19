@@ -1,0 +1,114 @@
+﻿{
+  "categories": [
+    {
+      "id": "maixiang",
+      "name": "麥香系列",
+      "tagline": "熟悉的麥香，照顧每一刻",
+      "description": "以大麥香氣為主軸的經典茶飲與奶茶。",
+      "href": "maixiang.html",
+      "heroImage": "https://online.carrefour.com.tw/on/demandware.static/-/Sites-carrefour-tw-m-inner/default/dw1e244c08/images/large/1003201300106_NR_00.png",
+      "accent": "#c9631c"
+    },
+    {
+      "id": "pecos",
+      "name": "輕鬆小品系列",
+      "tagline": "柔和口感，輕鬆好心情",
+      "description": "以咖啡牛奶為主打的輕鬆小品。",
+      "href": "pecos.html",
+      "heroImage": "https://www.pecos.com.tw/tmp/image/20140401/20140401190104_68462.jpg",
+      "accent": "#7a4a2f"
+    },
+    {
+      "id": "kingoftea",
+      "name": "茶裏王系列",
+      "tagline": "回甘像現泡",
+      "description": "多款茶系風味，細緻回甘。",
+      "href": "tea-king.html",
+      "heroImage": "https://www.kingoftea.com.tw/img/product/product-img-10.png",
+      "accent": "#1f7a62"
+    }
+  ],
+  "products": [
+    {
+      "id": "maixiang-black-tea",
+      "category": "maixiang",
+      "name": "麥香紅茶",
+      "volume": "TP375ml",
+      "description": "經典紅茶風味，帶著熟悉麥香。",
+      "image": "https://online.carrefour.com.tw/on/demandware.static/-/Sites-carrefour-tw-m-inner/default/dw343823e7/images/others/20221226130335972481.jpg",
+      "source": "https://online.carrefour.com.tw/zh/%E7%B5%B1%E4%B8%80/1003101300106.html",
+      "sourceLabel": "家樂福線上購物",
+      "badge": "經典",
+      "featured": true
+    },
+    {
+      "id": "maixiang-milk-tea",
+      "category": "maixiang",
+      "name": "麥香奶茶",
+      "volume": "TP375ml",
+      "description": "紅茶與乳香調和，麥香更溫潤。",
+      "image": "https://online.carrefour.com.tw/on/demandware.static/-/Sites-carrefour-tw-m-inner/default/dw1e244c08/images/large/1003201300106_NR_00.png",
+      "source": "https://online.carrefour.com.tw/zh/%E7%B5%B1%E4%B8%80/1003201300106.html",
+      "sourceLabel": "家樂福線上購物",
+      "badge": "熱賣",
+      "featured": true
+    },
+    {
+      "id": "maixiang-green-tea",
+      "category": "maixiang",
+      "name": "麥香綠茶",
+      "volume": "TP375ml",
+      "description": "清爽綠茶香氣，搭配焙炒麥香。",
+      "image": "https://online.carrefour.com.tw/on/demandware.static/-/Sites-carrefour-tw-m-inner/default/dw7a5cc0e5/images/large/1003306400124_NR_00.png",
+      "source": "https://online.carrefour.com.tw/zh/%E7%B5%B1%E4%B8%80/1003306400124.html",
+      "sourceLabel": "家樂福線上購物",
+      "badge": "清新"
+    },
+    {
+      "id": "pecos-coffee-milk",
+      "category": "pecos",
+      "name": "輕鬆小品 咖啡牛奶",
+      "volume": "400ml",
+      "description": "咖啡與牛奶調和，口感柔和順口。",
+      "image": "https://www.pecos.com.tw/tmp/image/20140402/20140402191301_24659.jpg",
+      "source": "https://www.pecos.com.tw/brands-%E8%BC%95%E9%AC%86%E5%B0%8F%E5%93%81.html",
+      "sourceLabel": "統一企業集團 PECOS",
+      "badge": "招牌",
+      "featured": true
+    },
+    {
+      "id": "kingoftea-earl-grey",
+      "category": "kingoftea",
+      "name": "茶裏王 伯爵紅茶",
+      "volume": "600ml",
+      "description": "伯爵茶香融合紅茶韻味。",
+      "image": "https://www.kingoftea.com.tw/img/product/product-img-10.png",
+      "source": "https://www.kingoftea.com.tw/product.php",
+      "sourceLabel": "茶裏王官方網站",
+      "badge": "香氣",
+      "featured": true
+    },
+    {
+      "id": "kingoftea-jin-xuan",
+      "category": "kingoftea",
+      "name": "茶裏王 半熟金萱",
+      "volume": "600ml",
+      "description": "金萱茶香溫潤，回甘層次細緻。",
+      "image": "https://www.kingoftea.com.tw/img/product/product-img-9.png",
+      "source": "https://www.kingoftea.com.tw/product.php",
+      "sourceLabel": "茶裏王官方網站",
+      "badge": "回甘"
+    },
+    {
+      "id": "kingoftea-four-seasons",
+      "category": "kingoftea",
+      "name": "茶裏王 四季春茶",
+      "volume": "600ml",
+      "description": "四季春茶香清爽，尾韻回甘。",
+      "image": "https://www.kingoftea.com.tw/img/product/product-img-6.png",
+      "source": "https://www.kingoftea.com.tw/product.php",
+      "sourceLabel": "茶裏王官方網站",
+      "badge": "清爽"
+    }
+  ]
+}
