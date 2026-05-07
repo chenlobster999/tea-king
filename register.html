@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>公共住宅門禁管理系統｜總覽</title>
+    <title>公共住宅門禁管理系統｜住戶登記</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page="dashboard">
+  <body data-page="register">
     <div class="app-shell">
       <header class="app-header">
         <div class="brand">
           <div class="brand-badge">PH</div>
           <div>
             <h1>公共住宅門禁管理系統</h1>
-            <p>Public Housing Access Control</p>
+            <p>住戶資料登記與權限管理</p>
           </div>
         </div>
         <div class="header-meta">
@@ -44,65 +44,66 @@
         <section class="panel">
           <div class="panel-head">
             <div>
-              <h2>營運即時看板</h2>
-              <p>集中查看住戶、門點、訪客與告警狀態。</p>
+              <h2>住戶登記</h2>
+              <p>建立住戶門卡資料，支援啟用與停用。</p>
             </div>
-            <div class="notice" id="emergencyBanner" hidden>緊急模式啟用中：所有門禁維持解鎖。</div>
           </div>
-          <div class="metrics-grid">
-            <article class="metric">
-              <div class="label">住戶總數</div>
-              <div class="value" id="metricResidents">0</div>
-              <div class="hint" id="metricResidentsHint">啟用中 0</div>
-            </article>
-            <article class="metric">
-              <div class="label">門點總數</div>
-              <div class="value" id="metricDoors">0</div>
-              <div class="hint" id="metricDoorsHint">已鎖定 0</div>
-            </article>
-            <article class="metric">
-              <div class="label">訪客申請</div>
-              <div class="value" id="metricVisitors">0</div>
-              <div class="hint" id="metricVisitorsHint">待審核 0</div>
-            </article>
-            <article class="metric">
-              <div class="label">今日事件</div>
-              <div class="value" id="metricEvents">0</div>
-              <div class="hint" id="metricEventsHint">最近 24 小時</div>
-            </article>
-          </div>
+          <form id="residentForm">
+            <div class="form-grid">
+              <label>
+                姓名
+                <input type="text" name="name" required placeholder="例：王小明" />
+              </label>
+              <label>
+                棟別/戶號
+                <input type="text" name="unit" required placeholder="A 棟 8F-02" />
+              </label>
+              <label>
+                聯絡電話
+                <input type="tel" name="phone" placeholder="09xx-xxx-xxx" />
+              </label>
+              <label>
+                門卡編號
+                <input type="text" name="cardId" required placeholder="CARD-0001" />
+              </label>
+              <label>
+                備用 PIN
+                <input type="text" name="pin" placeholder="4~6 碼" />
+              </label>
+            </div>
+            <div class="btn-row">
+              <button type="submit">新增住戶</button>
+              <button type="reset" class="secondary">清空輸入</button>
+            </div>
+          </form>
         </section>
 
         <section class="panel">
           <div class="panel-head">
             <div>
-              <h3>門禁即時狀態</h3>
-              <p>快速檢視每個門點是否鎖定與最近操作。</p>
+              <h3>住戶名單</h3>
+              <p>可搜尋、停用與重新啟用住戶權限。</p>
             </div>
-          </div>
-          <div class="door-grid" id="dashboardDoorGrid"></div>
-        </section>
-
-        <section class="panel">
-          <div class="panel-head">
-            <div>
-              <h3>最新通行紀錄</h3>
-              <p>顯示最新 12 筆事件。</p>
-            </div>
+            <label>
+              快速搜尋
+              <input type="search" id="residentSearch" placeholder="姓名 / 戶號 / 卡號" />
+            </label>
           </div>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>時間</th>
-                  <th>類型</th>
-                  <th>目標</th>
-                  <th>動作</th>
-                  <th>操作者</th>
-                  <th>備註</th>
+                  <th>姓名</th>
+                  <th>戶號</th>
+                  <th>電話</th>
+                  <th>門卡</th>
+                  <th>狀態</th>
+                  <th>建立時間</th>
+                  <th>最後通行</th>
+                  <th>操作</th>
                 </tr>
               </thead>
-              <tbody id="recentLogsBody"></tbody>
+              <tbody id="residentTableBody"></tbody>
             </table>
           </div>
         </section>

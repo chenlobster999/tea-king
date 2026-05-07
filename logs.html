@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>公共住宅門禁管理系統｜總覽</title>
+    <title>公共住宅門禁管理系統｜通行紀錄</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page="dashboard">
+  <body data-page="logs">
     <div class="app-shell">
       <header class="app-header">
         <div class="brand">
           <div class="brand-badge">PH</div>
           <div>
             <h1>公共住宅門禁管理系統</h1>
-            <p>Public Housing Access Control</p>
+            <p>事件紀錄查詢</p>
           </div>
         </div>
         <div class="header-meta">
@@ -44,50 +44,38 @@
         <section class="panel">
           <div class="panel-head">
             <div>
-              <h2>營運即時看板</h2>
-              <p>集中查看住戶、門點、訪客與告警狀態。</p>
+              <h2>紀錄查詢條件</h2>
+              <p>可依事件類型與日期過濾。</p>
             </div>
-            <div class="notice" id="emergencyBanner" hidden>緊急模式啟用中：所有門禁維持解鎖。</div>
           </div>
-          <div class="metrics-grid">
-            <article class="metric">
-              <div class="label">住戶總數</div>
-              <div class="value" id="metricResidents">0</div>
-              <div class="hint" id="metricResidentsHint">啟用中 0</div>
-            </article>
-            <article class="metric">
-              <div class="label">門點總數</div>
-              <div class="value" id="metricDoors">0</div>
-              <div class="hint" id="metricDoorsHint">已鎖定 0</div>
-            </article>
-            <article class="metric">
-              <div class="label">訪客申請</div>
-              <div class="value" id="metricVisitors">0</div>
-              <div class="hint" id="metricVisitorsHint">待審核 0</div>
-            </article>
-            <article class="metric">
-              <div class="label">今日事件</div>
-              <div class="value" id="metricEvents">0</div>
-              <div class="hint" id="metricEventsHint">最近 24 小時</div>
-            </article>
+          <div class="form-grid">
+            <label>
+              事件類型
+              <select id="logTypeFilter">
+                <option value="all">全部</option>
+                <option value="resident">住戶</option>
+                <option value="door">門禁</option>
+                <option value="visitor">訪客</option>
+                <option value="system">系統</option>
+              </select>
+            </label>
+            <label>
+              日期
+              <input id="logDateFilter" type="date" />
+            </label>
+          </div>
+          <div class="btn-row">
+            <button id="applyLogFilterBtn" type="button">套用查詢</button>
+            <button id="clearLogFilterBtn" type="button" class="secondary">清除條件</button>
+            <button id="exportLogsBtn" type="button" class="warn">匯出事件紀錄 JSON</button>
           </div>
         </section>
 
         <section class="panel">
           <div class="panel-head">
             <div>
-              <h3>門禁即時狀態</h3>
-              <p>快速檢視每個門點是否鎖定與最近操作。</p>
-            </div>
-          </div>
-          <div class="door-grid" id="dashboardDoorGrid"></div>
-        </section>
-
-        <section class="panel">
-          <div class="panel-head">
-            <div>
-              <h3>最新通行紀錄</h3>
-              <p>顯示最新 12 筆事件。</p>
+              <h3>事件明細</h3>
+              <p>所有操作都會寫入不可逆記錄。</p>
             </div>
           </div>
           <div class="table-wrap">
@@ -102,7 +90,7 @@
                   <th>備註</th>
                 </tr>
               </thead>
-              <tbody id="recentLogsBody"></tbody>
+              <tbody id="logTableBody"></tbody>
             </table>
           </div>
         </section>

@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>公共住宅門禁管理系統｜門禁鎖定</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="lock">
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-badge">PH</div>
+          <div>
+            <h1>公共住宅門禁管理系統</h1>
+            <p>門禁鎖定管理</p>
+          </div>
+        </div>
+        <div class="header-meta">
+          <div class="meta-label">值班人員</div>
+          <div class="meta-value" id="operatorLabel">管理員</div>
+          <div class="meta-value" id="liveClock">--</div>
+        </div>
+      </header>
+
+      <nav class="page-nav" aria-label="功能分頁">
+        <a href="index.html" data-nav="dashboard">系統總覽</a>
+        <a href="register.html" data-nav="register">住戶登記</a>
+        <a href="lock.html" data-nav="lock">門禁鎖定</a>
+        <a href="unlock.html" data-nav="unlock">門禁解鎖</a>
+        <a href="visitors.html" data-nav="visitors">訪客管理</a>
+        <a href="logs.html" data-nav="logs">通行紀錄</a>
+        <a href="settings.html" data-nav="settings">系統設定</a>
+      </nav>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>鎖定指令</h2>
+              <p>可單門鎖定或一鍵夜間鎖定全部門點。</p>
+            </div>
+          </div>
+          <label>
+            鎖定原因
+            <input id="lockReason" type="text" placeholder="例：夜間模式切換" />
+          </label>
+          <div class="btn-row">
+            <button id="lockAllBtn" type="button" class="warn">一鍵鎖定全部門點</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>門點狀態與操作</h3>
+              <p>離線門點不接受鎖定命令。</p>
+            </div>
+          </div>
+          <div class="door-grid" id="lockDoorGrid"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

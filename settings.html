@@ -1,0 +1,125 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>公共住宅門禁管理系統｜系統設定</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="settings">
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-badge">PH</div>
+          <div>
+            <h1>公共住宅門禁管理系統</h1>
+            <p>系統與資料維護</p>
+          </div>
+        </div>
+        <div class="header-meta">
+          <div class="meta-label">值班人員</div>
+          <div class="meta-value" id="operatorLabel">管理員</div>
+          <div class="meta-value" id="liveClock">--</div>
+        </div>
+      </header>
+
+      <nav class="page-nav" aria-label="功能分頁">
+        <a href="index.html" data-nav="dashboard">系統總覽</a>
+        <a href="register.html" data-nav="register">住戶登記</a>
+        <a href="lock.html" data-nav="lock">門禁鎖定</a>
+        <a href="unlock.html" data-nav="unlock">門禁解鎖</a>
+        <a href="visitors.html" data-nav="visitors">訪客管理</a>
+        <a href="logs.html" data-nav="logs">通行紀錄</a>
+        <a href="settings.html" data-nav="settings">系統設定</a>
+      </nav>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>基本設定</h2>
+              <p>設定值班人員名稱與緊急模式。</p>
+            </div>
+          </div>
+          <form id="settingsForm">
+            <div class="form-grid">
+              <label>
+                值班人員名稱
+                <input id="operatorName" type="text" required placeholder="例：中控室 王班長" />
+              </label>
+              <label>
+                緊急模式
+                <select id="emergencyModeSelect">
+                  <option value="off">關閉</option>
+                  <option value="on">啟用（全門解鎖）</option>
+                </select>
+              </label>
+            </div>
+            <div class="btn-row">
+              <button type="submit">儲存設定</button>
+            </div>
+          </form>
+          <p class="footer-note">啟用緊急模式後，系統會將全部門點切至解鎖，並寫入事件紀錄。</p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>門點設定</h3>
+              <p>新增與移除門點。</p>
+            </div>
+          </div>
+          <form id="addDoorForm">
+            <div class="form-grid">
+              <label>
+                門點名稱
+                <input name="name" type="text" required placeholder="例：B 棟地下停車場入口" />
+              </label>
+              <label>
+                區域
+                <input name="zone" type="text" required placeholder="例：B 棟 / 地下室" />
+              </label>
+            </div>
+            <div class="btn-row">
+              <button type="submit">新增門點</button>
+            </div>
+          </form>
+          <div class="table-wrap" style="margin-top: 14px">
+            <table>
+              <thead>
+                <tr>
+                  <th>名稱</th>
+                  <th>區域</th>
+                  <th>狀態</th>
+                  <th>最後操作</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="settingsDoorTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>資料維護</h3>
+              <p>匯出備份與示範資料重設。</p>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button id="exportDataBtn" type="button" class="warn">匯出完整資料 JSON</button>
+            <button id="resetDemoBtn" type="button" class="danger">重設為示範資料</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

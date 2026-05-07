@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>公共住宅門禁管理系統｜門禁解鎖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="unlock">
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-badge">PH</div>
+          <div>
+            <h1>公共住宅門禁管理系統</h1>
+            <p>門禁解鎖管理</p>
+          </div>
+        </div>
+        <div class="header-meta">
+          <div class="meta-label">值班人員</div>
+          <div class="meta-value" id="operatorLabel">管理員</div>
+          <div class="meta-value" id="liveClock">--</div>
+        </div>
+      </header>
+
+      <nav class="page-nav" aria-label="功能分頁">
+        <a href="index.html" data-nav="dashboard">系統總覽</a>
+        <a href="register.html" data-nav="register">住戶登記</a>
+        <a href="lock.html" data-nav="lock">門禁鎖定</a>
+        <a href="unlock.html" data-nav="unlock">門禁解鎖</a>
+        <a href="visitors.html" data-nav="visitors">訪客管理</a>
+        <a href="logs.html" data-nav="logs">通行紀錄</a>
+        <a href="settings.html" data-nav="settings">系統設定</a>
+      </nav>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>解鎖指令</h2>
+              <p>可設定限時解鎖，時間到自動回鎖。</p>
+            </div>
+          </div>
+          <form id="unlockForm">
+            <div class="form-grid">
+              <label>
+                選擇門點
+                <select id="unlockDoorSelect" name="doorId" required></select>
+              </label>
+              <label>
+                解鎖分鐘數
+                <input id="unlockMinutes" type="number" min="0" max="720" value="0" />
+              </label>
+              <label>
+                解鎖原因
+                <input id="unlockReason" type="text" placeholder="例：搬家作業" />
+              </label>
+            </div>
+            <div class="btn-row">
+              <button type="submit">送出解鎖</button>
+              <button id="unlockAllTenBtn" type="button" class="warn">全部解鎖 10 分鐘</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>目前解鎖門點</h3>
+              <p>可手動回鎖。</p>
+            </div>
+          </div>
+          <div class="door-grid" id="unlockedDoorGrid"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
